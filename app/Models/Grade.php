@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Major extends Model
+class Grade extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'major_id',
         'name'
     ];
 
-    public function grades()
+    public function major()
     {
-        return $this->hasMany(Grade::class);
+        return $this->belongsTo(Major::class);
     }
 }
