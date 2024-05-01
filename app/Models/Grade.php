@@ -19,4 +19,9 @@ class Grade extends Model
     {
         return $this->belongsTo(Major::class);
     }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

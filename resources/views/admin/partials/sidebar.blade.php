@@ -25,6 +25,13 @@
       </a>
     </li>
 
+    <li class="nav-item">
+      <a wire:navigate class="nav-link {{ request()->routeIs('admin.siswa') ? '': 'collapsed' }}" href="{{ route('admin.siswa') }}">
+        <i class="bi bi-person"></i>
+        <span>Siswa</span>
+      </a>
+    </li>
+
   </ul>
 
 </aside>

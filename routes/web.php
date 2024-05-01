@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\MajorController;
+use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
     Route::get('/jurusan', [MajorController::class, 'index'])->name('admin.jurusan');
     Route::get('/kelas', [GradeController::class, 'index'])->name('admin.kelas');
+    Route::get('/siswa', [StudentController::class, 'index'])->name('admin.siswa');
 });
 
 Auth::routes();

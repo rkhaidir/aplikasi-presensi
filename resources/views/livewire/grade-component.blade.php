@@ -6,6 +6,13 @@
     </div>
   @endif
 
+  @if (session("error"))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ session('error') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  @endif
+
   <button wire:click="create" type="button" class="btn btn-primary mb-3">Tambah Data</button>
 
   <table class="table">
@@ -42,13 +49,13 @@
         <form wire:submit="{{ $editGradeId ? 'update' : 'store' }}">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Kelas</h5>
               <button wire:click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="mb-3">
                 <label for="major_id" class="form-label">Jurusan</label>
-                <select wire:model="major_id" id="major_id" class="form-control">
+                <select wire:model="major_id" id="major_id" class="form-control @error('major_id') is-invalid @enderror">
                   <option value="">Pilih Jurusan</option>
                   @foreach ($majors as $major)
                     <option value="{{ $major->id }}">{{ $major->name }}</option>
