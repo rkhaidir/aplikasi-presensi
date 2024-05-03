@@ -21,6 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/presensi', function () {
+    return view('presence');
+})->name('presensi');
+
+Route::get('/sukses', function () {
+    return view('success');
+})->name('sukses');
+
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
     Route::get('/jurusan', [MajorController::class, 'index'])->name('admin.jurusan');
